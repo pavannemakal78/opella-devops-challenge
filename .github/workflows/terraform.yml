@@ -36,12 +36,12 @@ jobs:
 
       - name: Initialize Terraform
         run: terraform init
-        working-directory: environments/dev
+        working-directory: environments/${{ github.event.inputs.environment }}
 
       - name: Terraform Plan
         run: terraform plan 
-        working-directory: environments/dev
+        working-directory: environments/${{ github.event.inputs.environment }}
 
       - name: Terraform Apply
         run: terraform apply -auto-approve 
-        working-directory: environments/dev
+        working-directory: environments/${{ github.event.inputs.environment }}
