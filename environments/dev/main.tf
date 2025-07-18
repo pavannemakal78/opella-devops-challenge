@@ -30,7 +30,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   network_interface_ids = [azurerm_network_interface.nic.id]
  admin_ssh_key {
     username    = "azureuser"
-    public_key  = file("/Users/nemakalpavan/Git_Repos/opella-devops-challenge/environments/dev/id_rsa.pub")
+    public_key = file("${path.module}/id_rsa.pub")
  }
   os_disk {
     caching              = "ReadWrite"
